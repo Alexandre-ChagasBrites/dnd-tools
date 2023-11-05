@@ -1,0 +1,141 @@
+* {
+    font-family: 'Calibri';
+}
+
+body {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: auto 2fr 1fr;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: #E4CC9C;
+}
+
+h2, h3, h4 {
+    font-variant-caps: small-caps;
+    margin: 0;
+}
+
+hr, hr + p, h3 + p {
+    margin-top: 0;
+}
+
+header {
+    color: white;
+    background-color: #4E4026;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    text-align: center;
+    padding: 1em;
+}
+
+header button {
+    font-size: 1em;
+}
+
+.active {
+    grid-column: 1;
+    grid-row: 2 / 4;
+}
+
+.target {
+    grid-column: 3;
+    grid-row: 2 / 4;
+}
+
+.encounter {
+    grid-column: 2;
+    grid-row: 2;
+    flex: auto;
+}
+
+.encounter-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.log {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.abilities {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.abilities p {
+    text-align: center;
+    margin-top: 0;
+}
+
+.border {
+    border-color: #4E4026;
+    border-style: solid;
+    border-width: 25px;
+    border-image-source: url(assets/border.png);
+    border-image-slice: 75 fill;
+    border-image-repeat: round;
+    border-image-width: 75px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.content {
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.number {
+    width: 3em;
+}
+
+.slot {
+    width: 2em;
+    height: 2em;
+    padding: 0;
+}
+
+ol {
+    overflow: auto;
+    list-style: none;
+    margin: 0;
+    padding-inline: 0;
+}
+
+table {
+    overflow: auto;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th:not(:nth-child(2)) {
+    width: auto;
+    white-space: nowrap;
+}
+
+thead th:nth-child(2) {
+    width: 100%;
+}
+
+tbody td:not(:nth-child(2)) {
+    text-align: center;
+}
+
+tbody tr.selected {
+    outline: #4E4026 solid 3px;
+    outline-offset: -3px;
+}
+
+ol li, th, td {
+    padding: 4px;
+    text-align: start;
+}
+
+ol li:nth-child(odd), tbody tr:nth-child(odd) {
+    background-color: #D5E3C0;
+}
