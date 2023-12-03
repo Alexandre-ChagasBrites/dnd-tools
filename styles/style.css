@@ -39,25 +39,33 @@ header button {
     grid-row: 2 / 4;
 }
 
-.target {
-    grid-column: 3;
-    grid-row: 2 / 4;
-}
-
 .encounter {
     grid-column: 2;
     grid-row: 2;
     flex: auto;
 }
 
-.encounter-header {
+.header {
     display: flex;
     justify-content: space-between;
+}
+
+#loadInput {
+    display: none;
 }
 
 .log {
     grid-column: 2;
     grid-row: 3;
+}
+
+.log p {
+    margin: 0;
+}
+
+.target {
+    grid-column: 3;
+    grid-row: 2 / 4;
 }
 
 .abilities {
@@ -75,7 +83,7 @@ header button {
     border-color: #4E4026;
     border-style: solid;
     border-width: 25px;
-    border-image-source: url(assets/border.png);
+    border-image-source: url(../assets/border.png);
     border-image-slice: 75 fill;
     border-image-repeat: round;
     border-image-width: 75px;
@@ -113,17 +121,21 @@ table {
     border-collapse: collapse;
 }
 
-thead th:not(:nth-child(2)) {
+thead th:not(:nth-child(3)) {
     width: auto;
     white-space: nowrap;
 }
 
-thead th:nth-child(2) {
+thead th:nth-child(3) {
     width: 100%;
 }
 
-tbody td:not(:nth-child(2)) {
+tbody td:not(:nth-child(3)) {
     text-align: center;
+}
+
+tbody tr:not(.current) td.arrow {
+    color: transparent;
 }
 
 tbody tr.selected {

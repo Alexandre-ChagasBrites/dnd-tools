@@ -3,34 +3,46 @@
     <head>
         <meta charset="UTF-8">
         <title>Dungeons & Dragons</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="scripts/utils.js" defer></script>
+        <script src="scripts/model.js" defer></script>
+        <script src="scripts/view.js" defer></script>
+        <script src="scripts/index.js" defer></script>
     </head>
     <body>
         <header>
-            <h2><button type="button">⏮</button> Rodada <span>1</span> <button id="playpauseButton" type="button">⏵</button><button id="stopButton" type="button">⏹</button> Turno <span>1</span> <button type="button">⏭</button></h2>
+            <h2>
+                <button type="button" id="prevButton">⏮</button>
+                Rodada <span id="round">1</span>
+                <button type="button" id="playpauseButton">⏵</button>
+                <button type="button" id="stopButton">⏹</button>
+                Turno <span id="turn">1</span>
+                <button type="button" id="nextButton">⏭</button>
+            </h2>
         </header>
         <div class="border active">
-            <h2>Combatante</h2>
-            <div id="active" class="content"></div>
-        </div>
-        <div class="border target">
-            <h2>Alvo</h2>
-            <div id="target" class="content"></div>
+            <h2>Atual</h2>
+            <div class="content" id="active"></div>
         </div>
         <div class="border encounter">
-            <div class="encounter-header">
+            <div class="header">
                 <h2>Encontro</h2>
                 <div>
-                    <input id="combatantInput" list="combatantList" type="search">
-                    <button id="addButton" type="button">Add</button>
-                    <datalist id="combatantList"></datalist>
+                    <select id="characterSelect">
+                        <optgroup label="Jogadores" id="playerGroup"></optgroup>
+                        <optgroup label="Monstros" id="monsterGroup"></optgroup>
+                    </select>
+                    <button type="button" id="addButton">Add</button>
+                    <button type="button" id="loadButton">Load</button>
+                    <input type="file" id="loadInput" accept=".json" multiple tabindex="-1">
+                    <button type="button" id="saveButton">Save</button>
                 </div>
             </div>
             <div class="content">
                 <table>
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Iniciativa</th>
                             <th>Nome</th>
                             <th>Pontos de Vida</th>
@@ -38,13 +50,20 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="encounterBody"></tbody>
                 </table>
             </div>
         </div>
         <div class="border log">
-            <h2>Registro</h2>
-            <div id="log" class="content"></div>
+            <div class="header">
+                <h2>Registro</h2>
+                <p id="logTimer">00:00:00</p>
+            </div>
+            <p class="content" id="logBody"></p>
+        </div>
+        <div class="border target">
+            <h2>Alvo</h2>
+            <div class="content" id="target"></div>
         </div>
     </body>
 </html>
